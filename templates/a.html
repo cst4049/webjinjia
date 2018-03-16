@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <style type="text/css">
+    .h1 {color:red}
+    .p {color:blue}
+</style>
+    </head>
+    <title>base.html</title>
+
+    <body>
+    <table border="0">
+      <tr>
+        <th>名称</th>
+        <th>价格</th>
+        <th>变化</th>
+        <th>长处</th>
+      </tr>
+        {% for i in data %}
+        <tr>
+            <td class="h1">{{i.name}}</td>
+            <td class="p">{{i.price}}</td>
+            <td>{{i.change}}</td>
+            <td>{{i.output}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </body>
+</html>
