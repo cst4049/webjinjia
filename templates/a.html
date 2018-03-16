@@ -1,14 +1,36 @@
 <html>
     <head>
         <style type="text/css">
-    .h1 {color:red}
-    .p {color:blue}
+    .down {color:red}
+    .up {color:blue}
+    table.gridtable {
+        font-family: verdana,arial,sans-serif;
+        font-size:11px;
+        color:#333333;
+        border-width: 1px;
+        border-color: #666666;
+        border-collapse: collapse;
+    }
+    table.gridtable th {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #666666;
+        background-color: #dedede;
+    }
+    table.gridtable td {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #666666;
+        background-color: #ffffff;
+    }
 </style>
     </head>
     <title>base.html</title>
 
     <body>
-    <table border="0">
+    <table class="gridtable">
       <tr>
         <th>名称</th>
         <th>价格</th>
@@ -17,9 +39,13 @@
       </tr>
         {% for i in data %}
         <tr>
-            <td class="h1">{{i.name}}</td>
-            <td class="p">{{i.price}}</td>
-            <td>{{i.change}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.price}}</td>
+            {% if i.change.startswith("-") %}
+              <td class="down">{{i.change}}</td>
+            {% else %}
+              <td class="up">{{i.change}}</td>
+            {% endif %}
             <td>{{i.output}}</td>
         </tr>
         {% endfor %}
